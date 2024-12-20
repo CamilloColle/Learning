@@ -129,6 +129,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.sktime_venv/
+sktime_venv/
 
 # Spyder project settings
 .spyderproject
