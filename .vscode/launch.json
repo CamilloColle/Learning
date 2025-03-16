@@ -26,6 +26,17 @@
                 }
             ],
             "preLaunchTask": "C/C++: g++.exe build active file"
+        },
+        {
+            "name": "Python Debugger: Django",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}\\web_wiki\\manage.py",
+            "args": [
+                "runserver",
+                "9000" // specify port to avoid conflicts
+            ],
+            "django": true
         }
     ]
 }
