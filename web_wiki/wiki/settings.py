@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     #my apps
+    'campaigns',
     'characters',
+    'locations',
+    'items',
     'playground',
     'debug_toolbar'
 ]
