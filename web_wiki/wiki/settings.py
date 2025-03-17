@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+from passwords import db_password
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    #my apps
+    'characters',
     'playground',
     'debug_toolbar'
 ]
@@ -84,8 +87,12 @@ WSGI_APPLICATION = 'wiki.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'wiki',  # Database name
+        'USER': 'wiki_user',  # PostgreSQL username
+        'PASSWORD': db_password,  # PostgreSQL password
+        'HOST': 'localhost',  # Keep as 'localhost' if running locally
+        'PORT': '5432',  # Default PostgreSQL port
     }
 }
 

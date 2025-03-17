@@ -166,3 +166,5 @@ cython_debug/
 
 #API keys
 APIs/server_apis/api_keys.py
+
+web_wiki/passwords.py
