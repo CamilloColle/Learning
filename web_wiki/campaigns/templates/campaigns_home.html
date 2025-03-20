@@ -5,5 +5,15 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Campaigns List</h1>
+    <section>
+        <h1>Campaigns List</h1>
+
+        {% for campaign in campaigns%}
+            <article class="campaign">
+                <h2>{{ campaign.title }}</h2>
+                <p>{{ campaign.start_date }}</p>
+                <p>{{ campaign.description }}</p>
+            </article>
+        {% endfor %}
+    </section>
 {% endblock %}
