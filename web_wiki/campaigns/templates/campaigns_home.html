@@ -10,7 +10,11 @@
 
         {% for campaign in campaigns%}
             <article class="campaign">
-                <h2>{{ campaign.title }}</h2>
+                <h2>
+                    <a href="{% url 'campaigns:page' slug=campaign.slug %}"> <!--uses name given in the url file-->
+                        {{ campaign.title }}
+                    </a>
+                </h2>
                 <p>{{ campaign.start_date }}</p>
                 <p>{{ campaign.description }}</p>
             </article>

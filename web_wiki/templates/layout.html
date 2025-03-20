@@ -16,7 +16,7 @@
     <nav>
         <a href="/">🏠</a> |
         <a href="/about">❔</a> |
-        <a href="/campaigns">🛣️</a> |
+        <a href="{% url 'campaigns:list' %}">🛣️</a> | <!-- fetch the url named 'campaigns', see campaigns/urls-->
     </nav>
     <main>
         {% block content %}
