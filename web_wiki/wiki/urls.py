@@ -27,6 +27,7 @@ urlpatterns = [
     path('', views.homepage),
     path('about/', views.about),
     path('campaigns/', include('campaigns.urls')),
+    path('users/', include('users.urls')),
     path('playground/', include('playground.urls')), #any request starting with playground will be handled by the respective playground module
     path('__debug__/', include(debug_toolbar.urls)),
 ]

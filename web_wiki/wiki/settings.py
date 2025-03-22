@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'characters',
     'locations',
     'items',
+    'users',
     'playground',
     'debug_toolbar'
 ]
