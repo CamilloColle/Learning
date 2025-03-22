@@ -14,9 +14,19 @@
 </head>
 <body>
     <nav>
-        <a href="/">🏠</a> |
-        <a href="/about">❔</a> |
-        <a href="{% url 'campaigns:list' %}">🛣️</a> | <!-- fetch the url named 'campaigns', see campaigns/urls-->
+        <a href="/">
+            <span role="img" aria-label="Home" title="Home">🏠</span>
+        </a> |
+        <a href="/about">
+            <span role="img" aria-label="About" title="About">❔</span>
+        </a> |
+        <a href="{% url 'campaigns:list' %}">
+            <span role="img" aria-label="Campaigns" title="Campaigns">🛣️</span>
+        </a> | <!-- fetch the url named 'campaigns', see campaigns/urls-->
+        <a href="{% url 'users:register' %}">
+            <span role="img" aria-label="Log in" title="Log in">🪵</span>
+        </a> | <!-- fetch the url named 'campaigns', see campaigns/urls-->
+        
     </nav>
     <main>
         {% block content %}

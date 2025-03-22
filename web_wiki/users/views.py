@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User
+from django.contrib.auth.forms import UserCreationForm
 
 """
 def users_list(request):
@@ -8,6 +9,14 @@ def users_list(request):
 """
 
 def register(request):
-    return render(request, 'register.html')
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("campaigns:list") #redirect to app 'campaigns', urls with name 'list'
+    else: #ie if not submitted via POST method
+        form = UserCreationForm() #create empty form
+    return render(request, 'register.html', #and return empty form
+                  {'form': form})
     
 
