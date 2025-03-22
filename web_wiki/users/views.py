@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import User
+#from .models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 
 """
 def users_list(request):
@@ -26,11 +26,17 @@ def login_view(request):
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             login(request, form.get_user()) #fetch user from form if valid
-            return redirect('campaigns:list')
+            if "next" in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect('campaigns:list')
     else:
         form = AuthenticationForm()
         
     return render(request, 'login.html', #and return empty form
                   {'form': form})
-    
 
+def logout_view(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect('campaigns:list')

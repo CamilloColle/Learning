@@ -27,8 +27,15 @@
             <span role="img" aria-label="Sign up" title="Sign up">🪧⬆️</span>
         </a> | 
         <a href="{% url 'users:login' %}">
-            <span role="img" aria-label="Log in" title="Log in">🪵</span>
+            <span role="img" aria-label="Log in" title="Log in">🪵⬅️</span>
         </a> |
+        <a href="{% url 'campaigns:new-campaign' %}">
+            <span role="img" aria-label="New Campaign" title="New Campaign">🆕</span>
+        </a> |
+        <form class="logout" action="{% url 'users:logout' %}" method="POST">
+            {% csrf_token %}
+            <button class="logout-button" aria-label="Log out", title="Log out">👋</button>
+        </form>
         
     </nav>
     <main>
