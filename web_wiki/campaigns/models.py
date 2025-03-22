@@ -7,6 +7,7 @@ class Campaign(models.Model):
     start_date = models.DateField()  # Campaign start date
     end_date = models.DateField(null=True, blank=True)  # Optional end date
     slug = models.SlugField(blank=True, unique=True)
+    icon = models.ImageField(default='placeholder.png', blank=True)
 
     def __str__(self):
         return self.title  # Display campaign name in admin panel

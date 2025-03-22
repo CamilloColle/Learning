@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 import debug_toolbar
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,3 +30,6 @@ urlpatterns = [
     path('playground/', include('playground.urls')), #any request starting with playground will be handled by the respective playground module
     path('__debug__/', include(debug_toolbar.urls)),
 ]
+
+#specify where to find images
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -15,6 +15,7 @@ class PlayerCharacter(Character):
     """Model for Player Characters (PCs), with an associated character sheet PDF"""
     character_class = models.CharField(max_length=50)
     player_name = models.CharField(max_length=100)
+    #portrait = models.ImageField(default='placeholder_image.png', blank=True)
     character_sheet = models.FileField(upload_to='character_sheets/', blank=True, null=True)  # PDF upload
 
 class NonPlayerCharacter(Character):

@@ -6,6 +6,11 @@
 
 {% block content %}
     <section>
+        <img 
+        class="banner"
+        src="{{ campaign.icon.url }}"
+        alt="{{ campaign.title }}"
+        />
         <h1>{{ campaign.title }}</h1>
         <p>{{ campaign.start_date }}</p>
         <p>{{ campaign.description }}</p>
