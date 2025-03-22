@@ -23,19 +23,24 @@
         <a href="{% url 'campaigns:list' %}">
             <span role="img" aria-label="Campaigns" title="Campaigns">🛣️</span>
         </a> | <!-- fetch the url named 'campaigns', see campaigns/urls-->
-        <a href="{% url 'users:register' %}">
-            <span role="img" aria-label="Sign up" title="Sign up">🪧⬆️</span>
-        </a> | 
-        <a href="{% url 'users:login' %}">
-            <span role="img" aria-label="Log in" title="Log in">🪵⬅️</span>
-        </a> |
-        <a href="{% url 'campaigns:new-campaign' %}">
-            <span role="img" aria-label="New Campaign" title="New Campaign">🆕</span>
-        </a> |
-        <form class="logout" action="{% url 'users:logout' %}" method="POST">
-            {% csrf_token %}
-            <button class="logout-button" aria-label="Log out", title="Log out">👋</button>
-        </form>
+ 
+        {% if user.is_authenticated %}
+            <a href="{% url 'campaigns:new-campaign' %}">
+                <span role="img" aria-label="New Campaign" title="New Campaign">🆕</span>
+            </a> |
+            <form class="logout" action="{% url 'users:logout' %}" method="POST">
+                {% csrf_token %}
+                <button class="logout-button" aria-label="Log out", title="Log out">👋</button>
+            </form>
+        {% else %}
+            <a href="{% url 'users:register' %}">
+                <span role="img" aria-label="Sign up" title="Sign up">🪧⬆️</span>
+            </a> | 
+            <a href="{% url 'users:login' %}">
+                <span role="img" aria-label="Log in" title="Log in">🪵⬅️</span>
+            </a>
+        {% endif %}
+        
         
     </nav>
     <main>
